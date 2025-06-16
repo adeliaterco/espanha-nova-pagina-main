@@ -208,6 +208,7 @@ export const quizSteps = [
       profileComplete: "90%",
     },
   },
+[
   {
     id: 11,
     question: "¡ENHORABUENA! He analizado tus respuestas y tengo buenas noticias para ti.",
@@ -222,20 +223,6 @@ export const quizSteps = [
       helpedCounter: "Personas ayudadas hoy: 17",
       compatibilityCalc: "90,5%",
     },
-  },
-{
-  id: 12,
-  question: "RESULTADOS DEMOSTRADOS",
-  subtext:
-    "EL 91% DE MIS ALUMNOS VIERON RESULTADOS ESPECTACULARES EN LOS PRIMEROS 7 DÍAS APLICANDO EL PLAN A",
-  description: "",
-  options: ["¡YO TAMBIÉN QUIERO ESOS RESULTADOS!"],
-  elements: {
-    bigNumber: "91%",
-    profileComplete: "98%",
-    testimonialImage: "https://comprarplanseguro.shop/wp-content/uploads/2025/06/JOSE-DEP-CANVA.png",
-    additionalImage1: "https://comprarplanseguro.shop/wp-content/uploads/2025/06/3-JUAN-DEP-CANVA.png",
-    additionalImage2: "https://comprarplanseguro.shop/wp-content/uploads/2025/06/2-LUIS-DEP-CANVA.png"
   },
   {
     id: 12,
@@ -268,7 +255,8 @@ export const quizSteps = [
       profileComplete: "100%",
       allBonuses: true,
     },
-  },
+  }
+]
   {
     id: 14,
     question: {
