@@ -237,7 +237,6 @@ export const quizSteps = [
     additionalImage1: "https://comprarplanseguro.shop/wp-content/uploads/2025/06/3-JUAN-DEP-CANVA.png",
     additionalImage2: "https://comprarplanseguro.shop/wp-content/uploads/2025/06/2-LUIS-DEP-CANVA.png"
   },
-}
   {
     id: 13,
     question: "TU PLAN A - RECUPERACIÓN RÁPIDA DE 21 DÍAS",
