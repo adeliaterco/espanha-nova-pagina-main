@@ -208,7 +208,6 @@ export const quizSteps = [
       profileComplete: "90%",
     },
   },
-[
   {
     id: 11,
     question: "¡ENHORABUENA! He analizado tus respuestas y tengo buenas noticias para ti.",
@@ -255,8 +254,7 @@ export const quizSteps = [
       profileComplete: "100%",
       allBonuses: true,
     },
-  }
-]
+  },
   {
     id: 14,
     question: {
