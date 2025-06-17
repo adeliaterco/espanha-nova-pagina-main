@@ -70,11 +70,11 @@ export default function ResultPage() {
 
   const getPersonalizedTitle = () => {
     if (userGender === "MASCULINO") {
-      return "DESCUBRE EL MÉTODO SECRETO QUE HACE QUE TU EX TE BUSQUE DESESPERADAMENTE EN 21 DÍAS O MENOS (INCLUSO SI AHORA TE ODIA)"
+      return "RECUPERA A TU EX EN 21 DÍAS (INCLUSO SI TE BLOQUEÓ) "
     } else if (userGender === "FEMININO") {
-      return "DESCUBRE EL MÉTODO SECRETO QUE HACE QUE TU EX TE BUSQUE DESESPERADAMENTE EN 21 DÍAS O MENOS (INCLUSO SI AHORA TE ODIA)"
+      return "RECUPERA A TU EX EN 21 DÍAS (INCLUSO SI TE BLOQUEÓ) "
     }
-    return "DESCUBRE EL MÉTODO SECRETO QUE HACE QUE TU EX TE BUSQUE DESESPERADAMENTE EN 21 DÍAS O MENOS (INCLUSO SI AHORA TE ODIA)"
+    return "RECUPERA A TU EX EN 21 DÍAS (INCLUSO SI TE BLOQUEÓ) "
   }
 
   const getPersonalizedCTA = () => {
@@ -100,24 +100,6 @@ export default function ResultPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black p-4" ref={contentRef}>
       {/* Navegación fija para móvil - Simplificada y discreta */}
-      <div className="md:hidden sticky top-0 z-50 bg-black/90 backdrop-blur-md p-2 border-b border-orange-500">
-        <div className="flex justify-between items-center">
-          <h2 className="text-orange-400 font-bold text-sm">Tu Plan de Reconquista</h2>
-          <div className="flex items-center gap-2">
-            <Button
-              onClick={() => scrollToSection("resultado")}
-              variant="ghost"
-              size="sm"
-              className="text-white text-xs"
-            >
-              Resultado
-            </Button>
-            <Button onClick={() => scrollToSection("modulos")} variant="ghost" size="sm" className="text-white text-xs">
-              Módulos
-            </Button>
-          </div>
-        </div>
-      </div>
 
       <div className="max-w-6xl mx-auto">
         <motion.div
@@ -128,9 +110,7 @@ export default function ResultPage() {
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">{getPersonalizedTitle()}</h1>
 
           <p className="text-xl text-gray-300 mb-6 max-w-3xl mx-auto">
-            <span className="font-bold text-orange-300">Aunque {getPersonalizedPronoun()} te haya rechazado,</span> el
-            sistema probado por 3.847 personas que funciona incluso cuando tu ex te ha bloqueado, está con otra persona
-            o ha dicho que "nunca volverá contigo"
+            <span className="font-bold text-orange-300">Sistema {getPersonalizedPronoun()} probado por 3.847 personas.</span> Funciona aunque esté con otra persona o diga "nunca volveré"."
           </p>
         </motion.div>
 
