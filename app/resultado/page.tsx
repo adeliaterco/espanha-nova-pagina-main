@@ -191,7 +191,6 @@ export default function ResultPage() {
             </ul>
           </div>
 
-          {/* Alerta personalizada crítica */}
           <div className="bg-red-500/20 border border-red-400 p-3 rounded-lg mb-4">
             <div className="flex items-start">
               <AlertTriangle className="w-5 h-5 text-red-400 mr-2 mt-1" />
@@ -209,7 +208,6 @@ export default function ResultPage() {
         </div>
       </div>
 
-      {/* Prueba social dinámica mejorada */}
       <div className="mt-6 bg-black/30 p-3 rounded-lg">
         <div className="flex items-center justify-between flex-wrap gap-2">
           <div className="flex items-center">
@@ -229,7 +227,6 @@ export default function ResultPage() {
         </div>
       </div>
 
-      {/* Botón de acción personalizado */}
       <div className="mt-4 text-center">
         <motion.button
           whileHover={{ scale: 1.05 }}
