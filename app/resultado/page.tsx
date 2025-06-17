@@ -1193,7 +1193,7 @@ export default function ResultPage() {
         {/* Primera imagen */}
         <div className="aspect-video bg-black rounded-lg mb-6 overflow-hidden">
           <img
-            src="https://comprarplanseguro.shop/wp-content/uploads/2025/06/10af3a6a-97bc-4fdc-bee9-298649e82b7d.png"
+            src="https://comprarplanseguro.shop/wp-content/uploads/2025/06/forbes-pv.png"
             alt="Testimonio de reconquista - Primera imagen"
             className="w-full h-full object-cover rounded-lg hover:scale-105 transition-transform duration-300"
           />
