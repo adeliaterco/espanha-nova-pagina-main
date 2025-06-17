@@ -135,7 +135,7 @@ export default function ResultPage() {
             <div className="relative z-10 w-40 h-40 mx-auto bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center border-4 border-white">
               <div className="text-center">
                 <span className="text-4xl font-extrabold text-white">
-                  {typeof window !== 'undefined' ? Math.floor(Math.random() * 15) + 82 : 87}%
+                  {typeof window !== 'undefined' ? Math.floor(Math.random() * 15) + 90 : 87}%
                 </span>
                 <p className="text-sm font-bold text-white">
                   {typeof window !== 'undefined' && Math.random() > 0.3 ? "EXCELENTE" : "MUY BUENA"}
