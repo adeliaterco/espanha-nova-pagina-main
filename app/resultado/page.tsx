@@ -1460,7 +1460,7 @@ export default function ResultPage() {
           </Card>
         </motion.div>
 
-{/* Garantías - SIMPLIFICADAS */}
+{/* Garantías - SIMPLIFICADAAS */}
 <motion.div
   initial={{ opacity: 0, y: 20 }}
   animate={{ opacity: isLoaded ? 1 : 0, y: isLoaded ? 0 : 20 }}
