@@ -114,132 +114,158 @@ export default function ResultPage() {
           </p>
         </motion.div>
 
-{/* RESULTADO DEL QUIZ - SECCIÓN IMPACTANTE */}
-<motion.div
-  initial={{ opacity: 0, y: -20 }}
-  animate={{ opacity: isLoaded ? 1 : 0, y: isLoaded ? 0 : -20 }}
-  id="resultado"
-  className="max-w-4xl mx-auto mb-8"
->
-  <Card className="bg-gradient-to-r from-orange-600 to-red-600 text-white overflow-hidden border-4 border-yellow-400 shadow-2xl">
-    <CardContent className="p-6">
-      <div className="text-center mb-4">
-        <h3 className="text-2xl font-bold text-white">TU RESULTADO PERSONALIZADO</h3>
-        <div className="w-24 h-1 bg-yellow-400 mx-auto mt-2"></div>
-      </div>
+"use client";
 
-      <div className="flex flex-col md:flex-row items-center gap-6">
-        <div className="w-full md:w-1/3">
-          <div className="relative">
-            <div className="absolute inset-0 bg-yellow-400 rounded-full blur-xl opacity-60 animate-pulse"></div>
-            <div className="relative z-10 w-40 h-40 mx-auto bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center border-4 border-white">
-              <div className="text-center">
-                <span className="text-4xl font-extrabold text-white">
-                  {typeof window !== 'undefined' ? (90.5 + Math.random() * 1).toFixed(1) : '90.5'}%
-                </span>
-                <p className="text-sm font-bold text-white">
-                  {typeof window !== 'undefined' && Math.random() > 0.3 ? "EXCELENTE" : "MUY BUENA"}
+import { motion } from "framer-motion";
+import { Card, CardContent } from "@/components/ui/card";
+import { Check, AlertTriangle, Users, Clock } from "lucide-react";
+import { useState, useEffect } from "react";
+
+// Seus outros imports e componentes aqui...
+
+export default function ResultadoPage() {
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [recentBuyers, setRecentBuyers] = useState(127);
+
+  useEffect(() => {
+    setIsLoaded(true);
+  }, []);
+
+  const getPersonalizedPronoun = () => {
+    // Sua lógica aqui
+    return "él"; // ou "ella"
+  };
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-black">
+      {/* RESULTADO DEL QUIZ - SECCIÓN IMPACTANTE */}
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: isLoaded ? 1 : 0, y: isLoaded ? 0 : -20 }}
+        id="resultado"
+        className="max-w-4xl mx-auto mb-8 pt-20"
+      >
+        <Card className="bg-gradient-to-r from-orange-600 to-red-600 text-white overflow-hidden border-4 border-yellow-400 shadow-2xl">
+          <CardContent className="p-6">
+            <div className="text-center mb-4">
+              <h3 className="text-2xl font-bold text-white">TU RESULTADO PERSONALIZADO</h3>
+              <div className="w-24 h-1 bg-yellow-400 mx-auto mt-2"></div>
+            </div>
+
+            <div className="flex flex-col md:flex-row items-center gap-6">
+              <div className="w-full md:w-1/3">
+                <div className="relative">
+                  <div className="absolute inset-0 bg-yellow-400 rounded-full blur-xl opacity-60 animate-pulse"></div>
+                  <div className="relative z-10 w-40 h-40 mx-auto bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center border-4 border-white">
+                    <div className="text-center">
+                      <span className="text-4xl font-extrabold text-white">
+                        {typeof window !== 'undefined' ? (90.5 + Math.random() * 1).toFixed(1) : '90.5'}%
+                      </span>
+                      <p className="text-sm font-bold text-white">
+                        {typeof window !== 'undefined' && Math.random() > 0.3 ? "EXCELENTE" : "MUY BUENA"}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="w-full md:w-2/3">
+                <h4 className="text-xl font-bold text-yellow-300 mb-2">DIAGNÓSTICO ESPECÍFICO PARA TU CASO:</h4>
+                <p className="text-white text-lg mb-4">
+                  Basándome en tus respuestas del quiz, tu situación es{" "}
+                  <span className="font-bold underline">
+                    {typeof window !== 'undefined' ? 
+                      ["altamente recuperable", "muy prometedora", "extremadamente viable"][Math.floor(Math.random() * 3)] :
+                      "altamente recuperable"
+                    }
+                  </span> con la estrategia correcta.
                 </p>
+
+                <div className="bg-black/30 p-4 rounded-lg mb-4">
+                  <h5 className="font-bold text-yellow-300 mb-2">LO QUE HEMOS DESCUBIERTO SOBRE TU EX:</h5>
+                  <ul className="space-y-2 text-white">
+                    <li className="flex items-start">
+                      <Check className="w-5 h-5 text-green-400 mr-2 mt-1" />
+                      <span>
+                        {getPersonalizedPronoun() === "él" ? "Él" : "Ella"} {
+                          typeof window !== 'undefined' && Math.random() > 0.5 ? 
+                          "mantiene señales de interés emocional según tu perfil de respuestas" :
+                          "muestra patrones típicos de quien aún tiene sentimientos pero los oculta"
+                        }
+                      </span>
+                    </li>
+                    <li className="flex items-start">
+                      <Check className="w-5 h-5 text-green-400 mr-2 mt-1" />
+                      <span>
+                        Tu perfil de ruptura requiere el {
+                          typeof window !== 'undefined' ? 
+                          ["Protocolo Avanzado", "Módulo Especializado", "Plan Intensivo"][Math.floor(Math.random() * 3)] :
+                          "Módulo Especializado"
+                        } {typeof window !== 'undefined' ? Math.floor(Math.random() * 3) + 2 : 3}
+                      </span>
+                    </li>
+                    <li className="flex items-start">
+                      <Check className="w-5 h-5 text-green-400 mr-2 mt-1" />
+                      <span>
+                        Con tu perfil específico, puedes ver resultados en menos de {
+                          typeof window !== 'undefined' ? Math.floor(Math.random() * 10) + 14 : 21
+                        } días
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="bg-red-500/20 border border-red-400 p-3 rounded-lg mb-4">
+                  <div className="flex items-start">
+                    <AlertTriangle className="w-5 h-5 text-red-400 mr-2 mt-1" />
+                    <div>
+                      <p className="text-red-200 font-semibold">ATENCIÓN CRÍTICA:</p>
+                      <p className="text-white text-sm">
+                        {typeof window !== 'undefined' && Math.random() > 0.5 ?
+                          "Tu ventana de oportunidad se está cerrando. Cada día sin la estrategia correcta reduce tus posibilidades un 3.2%." :
+                          "Según tu perfil, es crucial actuar con la estrategia correcta AHORA antes de que sea demasiado tarde."
+                        }
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
 
-        <div className="w-full md:w-2/3">
-          <h4 className="text-xl font-bold text-yellow-300 mb-2">DIAGNÓSTICO ESPECÍFICO PARA TU CASO:</h4>
-          <p className="text-white text-lg mb-4">
-            Basándome en tus respuestas del quiz, tu situación es{" "}
-            <span className="font-bold underline">
-              {typeof window !== 'undefined' ? 
-                ["altamente recuperable", "muy prometedora", "extremadamente viable"][Math.floor(Math.random() * 3)] :
-                "altamente recuperable"
-              }
-            </span> con la estrategia correcta.
-          </p>
+            <div className="mt-6 bg-black/30 p-3 rounded-lg">
+              <div className="flex items-center justify-between flex-wrap gap-2">
+                <div className="flex items-center">
+                  <Users className="w-5 h-5 text-orange-400 mr-2" />
+                  <div className="text-sm text-white">
+                    <span className="font-bold text-orange-400">{recentBuyers}</span> personas con tu mismo perfil de respuestas 
+                    han recuperado a su ex {typeof window !== 'undefined' && Math.random() > 0.5 ? "este mes" : "en las últimas 3 semanas"}
+                  </div>
+                </div>
 
-          <div className="bg-black/30 p-4 rounded-lg mb-4">
-            <h5 className="font-bold text-yellow-300 mb-2">LO QUE HEMOS DESCUBIERTO SOBRE TU EX:</h5>
-            <ul className="space-y-2 text-white">
-              <li className="flex items-start">
-                <Check className="w-5 h-5 text-green-400 mr-2 mt-1" />
-                <span>
-                  {getPersonalizedPronoun() === "él" ? "Él" : "Ella"} {
-                    typeof window !== 'undefined' && Math.random() > 0.5 ? 
-                    "mantiene señales de interés emocional según tu perfil de respuestas" :
-                    "muestra patrones típicos de quien aún tiene sentimientos pero los oculta"
-                  }
-                </span>
-              </li>
-              <li className="flex items-start">
-                <Check className="w-5 h-5 text-green-400 mr-2 mt-1" />
-                <span>
-                  Tu perfil de ruptura requiere el {
-                    typeof window !== 'undefined' ? 
-                    ["Protocolo Avanzado", "Módulo Especializado", "Plan Intensivo"][Math.floor(Math.random() * 3)] :
-                    "Módulo Especializado"
-                  } {typeof window !== 'undefined' ? Math.floor(Math.random() * 3) + 2 : 3}
-                </span>
-              </li>
-              <li className="flex items-start">
-                <Check className="w-5 h-5 text-green-400 mr-2 mt-1" />
-                <span>
-                  Con tu perfil específico, puedes ver resultados en menos de {
-                    typeof window !== 'undefined' ? Math.floor(Math.random() * 10) + 14 : 21
-                  } días
-                </span>
-              </li>
-            </ul>
-          </div>
-
-          <div className="bg-red-500/20 border border-red-400 p-3 rounded-lg mb-4">
-            <div className="flex items-start">
-              <AlertTriangle className="w-5 h-5 text-red-400 mr-2 mt-1" />
-              <div>
-                <p className="text-red-200 font-semibold">ATENCIÓN CRÍTICA:</p>
-                <p className="text-white text-sm">
-                  {typeof window !== 'undefined' && Math.random() > 0.5 ?
-                    "Tu ventana de oportunidad se está cerrando. Cada día sin la estrategia correcta reduce tus posibilidades un 3.2%." :
-                    "Según tu perfil, es crucial actuar con la estrategia correcta AHORA antes de que sea demasiado tarde."
-                  }
-                </p>
+                <div className="flex items-center">
+                  <Clock className="w-5 h-5 text-orange-400 mr-2" />
+                  <div className="text-sm text-white">
+                    Tu análisis personalizado expira en: {/* <CountdownTimer minutes={15} seconds={0} /> */}
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
 
-      <div className="mt-6 bg-black/30 p-3 rounded-lg">
-        <div className="flex items-center justify-between flex-wrap gap-2">
-          <div className="flex items-center">
-            <Users className="w-5 h-5 text-orange-400 mr-2" />
-            <div className="text-sm text-white">
-              <span className="font-bold text-orange-400">{recentBuyers}</span> personas con tu mismo perfil de respuestas 
-              han recuperado a su ex {typeof window !== 'undefined' && Math.random() > 0.5 ? "este mes" : "en las últimas 3 semanas"}
+            <div className="mt-4 text-center">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-yellow-400 text-black font-bold py-3 px-8 rounded-full text-lg shadow-lg hover:bg-yellow-300 transition-all duration-300"
+              >
+                VER MI ESTRATEGIA PERSONALIZADA AHORA
+              </motion.button>
             </div>
-          </div>
-
-          <div className="flex items-center">
-            <Clock className="w-5 h-5 text-orange-400 mr-2" />
-            <div className="text-sm text-white">
-              Tu análisis personalizado expira en: <CountdownTimer minutes={15} seconds={0} />
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="mt-4 text-center">
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="bg-yellow-400 text-black font-bold py-3 px-8 rounded-full text-lg shadow-lg hover:bg-yellow-300 transition-all duration-300"
-        >
-          VER MI ESTRATEGIA PERSONALIZADA AHORA
-        </motion.button>
-      </div>
-    </CardContent>
-  </Card>
-</motion.div>
-
+          </CardContent>
+        </Card>
+      </motion.div>
+    </div>
+  );
+}
       {/* Prueba social dinámica mejorada */}
       <div className="mt-6 bg-black/30 p-3 rounded-lg">
         <div className="flex items-center justify-between flex-wrap gap-2">
