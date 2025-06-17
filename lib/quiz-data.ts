@@ -233,13 +233,15 @@ export const quizSteps = [
     elements: {
       bigNumber: "91%",
       profileComplete: "98%",
-      testimonialImages: [
-        "https://comprarplanseguro.shop/wp-content/uploads/2025/06/JOSE-DEP-CANVA.png",
-        "https://comprarplanseguro.shop/wp-content/uploads/2025/06/3-JUAN-DEP-CANVA.png",
-        "https://comprarplanseguro.shop/wp-content/uploads/2025/06/2-LUIS-DEP-CANVA.png"
-      ],
-      // Mantendo a propriedade original para compatibilidade
-      testimonialImage: "https://comprarplanseguro.shop/wp-content/uploads/2025/06/JOSE-DEP-CANVA.png"
+      testimonialCarousel: {
+        images: [
+          "https://comprarplanseguro.shop/wp-content/uploads/2025/06/JOSE-DEP-CANVA.png",
+          "https://comprarplanseguro.shop/wp-content/uploads/2025/06/3-JUAN-DEP-CANVA.png",
+          "https://comprarplanseguro.shop/wp-content/uploads/2025/06/2-LUIS-DEP-CANVA.png"
+        ],
+        autoPlay: true,
+        interval: 3000
+      }
     },
   },
   {
@@ -336,8 +338,203 @@ export const socialProofMessages = [
   "Estás más comprometido que el 73% de las personas que hicieron esta prueba",
 ]
 
-// Función utilitaria para personalizar textos basados en el género
-export function getPersonalizedContent(content: any, gender: string) {
+// Componente React para o carrossel de depoimentos
+export const TestimonialCarousel = ({ images, autoPlay = true, interval = 3000 }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    if (autoPlay && images.length > 1) {
+      const timer = setInterval(() => {
+        setCurrentIndex((prevIndex) => 
+          prevIndex === images.length - 1 ? 0 : prevIndex + 1
+        );
+      }, interval);
+
+      return () => clearInterval(timer);
+    }
+  }, [autoPlay, interval, images.length]);
+
+  const goToSlide = (index) => {
+    setCurrentIndex(index);
+  };
+
+  const goToPrevious = () => {
+    setCurrentIndex(currentIndex === 0 ? images.length - 1 : currentIndex - 1);
+  };
+
+  const goToNext = () => {
+    setCurrentIndex(currentIndex === images.length - 1 ? 0 : currentIndex + 1);
+  };
+
+  return (
+    <div className="testimonial-carousel">
+      <div className="carousel-container">
+        <div className="carousel-wrapper">
+          <div 
+            className="carousel-track"
+            style={{
+              transform: `translateX(-${currentIndex * 100}%)`,
+              transition: 'transform 0.5s ease-in-out'
+            }}
+          >
+            {images.map((image, index) => (
+              <div key={index} className="carousel-slide">
+                <img 
+                  src={image} 
+                  alt={`Testimonio ${index + 1}`}
+                  className="testimonial-image"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Botones de navegación */}
+        <button 
+          className="carousel-btn carousel-btn-prev"
+          onClick={goToPrevious}
+          aria-label="Testimonio anterior"
+        >
+          ‹
+        </button>
+        <button 
+          className="carousel-btn carousel-btn-next"
+          onClick={goToNext}
+          aria-label="Siguiente testimonio"
+        >
+          ›
+        </button>
+
+        {/* Indicadores */}
+        <div className="carousel-indicators">
+          {images.map((_, index) => (
+            <button
+              key={index}
+              className={`indicator ${index === currentIndex ? 'active' : ''}`}
+              onClick={() => goToSlide(index)}
+              aria-label={`Ir al testimonio ${index + 1}`}
+            />
+          ))}
+        </div>
+      </div>
+
+      <style jsx>{`
+        .testimonial-carousel {
+          width: 100%;
+          max-width: 600px;
+          margin: 0 auto;
+          position: relative;
+        }
+
+        .carousel-container {
+          position: relative;
+          width: 100%;
+          overflow: hidden;
+          border-radius: 12px;
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .carousel-wrapper {
+          width: 100%;
+          overflow: hidden;
+        }
+
+        .carousel-track {
+          display: flex;
+          width: ${images.length * 100}%;
+        }
+
+        .carousel-slide {
+          width: ${100 / images.length}%;
+          flex-shrink: 0;
+        }
+
+        .testimonial-image {
+          width: 100%;
+          height: auto;
+          display: block;
+          object-fit: cover;
+        }
+
+        .carousel-btn {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          background: rgba(0, 0, 0, 0.5);
+          color: white;
+          border: none;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          font-size: 18px;
+          cursor: pointer;
+          z-index: 2;
+          transition: background-color 0.3s ease;
+        }
+
+        .carousel-btn:hover {
+          background: rgba(0, 0, 0, 0.7);
+        }
+
+        .carousel-btn-prev {
+          left: 10px;
+        }
+
+        .carousel-btn-next {
+          right: 10px;
+        }
+
+        .carousel-indicators {
+          display: flex;
+          justify-content: center;
+          gap: 8px;
+          margin-top: 15px;
+        }
+
+        .indicator {
+          width: 12px;
+          height: 12px;
+          border-radius: 50%;
+          border: none;
+          background: rgba(0, 0, 0, 0.3);
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+        }
+
+        .indicator.active {
+          background: #007bff;
+        }
+
+        .indicator:hover {
+          background: rgba(0, 0, 0, 0.5);
+        }
+
+        .indicator.active:hover {
+          background: #0056b3;
+        }
+
+        @media (max-width: 768px) {
+          .carousel-btn {
+            width: 35px;
+            height: 35px;
+            font-size: 16px;
+          }
+
+          .carousel-btn-prev {
+            left: 5px;
+          }
+
+          .carousel-btn-next {
+            right: 5px;
+          }
+        }
+      `}</style>
+    </div>
+  );
+};
+
+// Função utilitaria para personalizar textos basados en el género
+export function getPersonalizedContent(content, gender) {
   if (typeof content === "string") {
     return content
   }
