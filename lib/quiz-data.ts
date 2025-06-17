@@ -48,7 +48,7 @@ export const quizSteps = [
     },
     bonusUnlock: {
       id: 1,
-      title: "21 GATILLOS EMOCIONALES QUE FUNCIONAN",
+      title: "21 DESENCADENANTES EMOCIONALES QUE FUNCIONAN",
       value: 47,
       description: "Las 21 frases exactas que hacen que piense en ti obsesivamente.",
     },
@@ -276,7 +276,7 @@ export const quizSteps = [
 export const bonuses = [
   {
     id: 1,
-    title: "21 GATILLOS EMOCIONALES QUE FUNCIONAN",
+    title: "21 DESENCADENANTES EMOCIONALES QUE FUNCIONAN",
     value: 47,
     description: "Las 21 frases exactas que hacen que piense en ti obsesivamente.",
     details: [

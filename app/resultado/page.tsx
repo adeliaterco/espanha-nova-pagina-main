@@ -301,7 +301,7 @@ export default function ResultPage() {
                     </div>
                   </motion.div>
 
-                  {/* 21 Gatillos Emocionales */}
+                  {/* 21 Desencadenantes Emocionales */}
                   <motion.div
                     animate={{
                       y: [0, -10, 0],
@@ -318,14 +318,14 @@ export default function ResultPage() {
                   >
                     <img
                       src="https://comprarplanseguro.shop/wp-content/uploads/2025/06/21-gatillos.png"
-                      alt="21 Gatillos Emocionales"
+                      alt="21 Desencadenantes Emocionales"
                       className="w-full h-auto rounded-lg shadow-lg product-image"
                     />
                     <div className="absolute -top-4 -right-4 bg-yellow-500 text-black font-bold py-1 px-3 rounded-full text-sm transform rotate-12 shadow-lg">
                       ¡BONUS #1!
                     </div>
                     <div className="mt-3 text-center">
-                      <h4 className="font-bold text-orange-800">21 GATILLOS EMOCIONALES</h4>
+                      <h4 className="font-bold text-orange-800">21 Desencadenantes Emocionales</h4>
                       <p className="text-sm text-gray-700">Activa el Deseo Inmediato</p>
                       <div className="mt-1">
                         <span className="text-sm text-gray-500 line-through">€47</span>
@@ -343,7 +343,7 @@ export default function ResultPage() {
                   <p className="text-orange-700 text-center">
                     El <span className="font-bold">Plan A</span> te da el sistema completo paso a paso para reconquistar
                     a {getPersonalizedPronoun()}, mientras que los{" "}
-                    <span className="font-bold">21 Gatillos Emocionales</span> aceleran todo el proceso activando
+                    <span className="font-bold">21 Desencadenantes Emocionales</span> aceleran todo el proceso activando
                     sentimientos profundos que {getPersonalizedPronoun()} creía haber olvidado.
                   </p>
                 </div>
@@ -900,7 +900,7 @@ export default function ResultPage() {
                     <div className="p-4 text-gray-300">
                       <div className="grid md:grid-cols-2 gap-6">
                         <div className="bg-gray-800/70 p-4 rounded-lg border border-yellow-500">
-                          <h6 className="text-lg font-bold text-yellow-400 mb-2">BONUS #1: 21 GATILLOS EMOCIONALES</h6>
+                          <h6 className="text-lg font-bold text-yellow-400 mb-2">BONUS #1: 21 Desencadenantes Emocionales</h6>
                           <p className="text-sm mb-2">
                             21 técnicas psicológicas que despiertan sentimientos profundos en {getPersonalizedPronoun()}
                             . Cada gatillo incluye exactamente qué decir y cuándo usarlo.
@@ -1230,7 +1230,7 @@ export default function ResultPage() {
                       <Gift className="w-8 h-8 text-white" />
                     </div>
                     <div>
-                      <h4 className="text-xl font-bold text-yellow-400">BONUS #1: 21 GATILLOS EMOCIONALES</h4>
+                      <h4 className="text-xl font-bold text-yellow-400">BONUS #1: 21 Desencadenantes Emocionales</h4>
                       <div className="flex items-center mt-1">
                         <span className="text-gray-400 line-through mr-2">€47</span>
                         <span className="text-green-400 font-bold">GRATIS</span>
@@ -1362,7 +1362,7 @@ export default function ResultPage() {
                         <Gift className="w-5 h-5 text-black" />
                       </div>
                       <div>
-                        <span className="font-bold text-xl">BONUS #1: 21 Gatillos Emocionales</span>
+                        <span className="font-bold text-xl">BONUS #1: 21 Desencadenantes Emocionales</span>
                         <p className="text-sm text-gray-200">
                           Técnicas psicológicas que aceleran todo el proceso de reconquista
                         </p>
