@@ -135,7 +135,7 @@ export default function ResultPage() {
             <div className="relative z-10 w-40 h-40 mx-auto bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center border-4 border-white">
               <div className="text-center">
                 <span className="text-4xl font-extrabold text-white">
-                  {typeof window !== 'undefined' ? Math.floor(Math.random() * 15) + 84 : 87}%
+                  {typeof window !== 'undefined' ? (90.5 + Math.random() * 1).toFixed(1) : '90.5'}%
                 </span>
                 <p className="text-sm font-bold text-white">
                   {typeof window !== 'undefined' && Math.random() > 0.3 ? "EXCELENTE" : "MUY BUENA"}
@@ -208,6 +208,40 @@ export default function ResultPage() {
           </div>
         </div>
       </div>
+
+      {/* Prueba social dinámica mejorada */}
+      <div className="mt-6 bg-black/30 p-3 rounded-lg">
+        <div className="flex items-center justify-between flex-wrap gap-2">
+          <div className="flex items-center">
+            <Users className="w-5 h-5 text-orange-400 mr-2" />
+            <div className="text-sm text-white">
+              <span className="font-bold text-orange-400">{recentBuyers}</span> personas con tu mismo perfil de respuestas 
+              han recuperado a su ex {typeof window !== 'undefined' && Math.random() > 0.5 ? "este mes" : "en las últimas 3 semanas"}
+            </div>
+          </div>
+
+          <div className="flex items-center">
+            <Clock className="w-5 h-5 text-orange-400 mr-2" />
+            <div className="text-sm text-white">
+              Tu análisis personalizado expira en: <CountdownTimer minutes={15} seconds={0} />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Botón de acción personalizado */}
+      <div className="mt-4 text-center">
+        <motion.button
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="bg-yellow-400 text-black font-bold py-3 px-8 rounded-full text-lg shadow-lg hover:bg-yellow-300 transition-all duration-300"
+        >
+          VER MI ESTRATEGIA PERSONALIZADA AHORA
+        </motion.button>
+      </div>
+    </CardContent>
+  </Card>
+</motion.div>
 
       {/* Prueba social dinámica mejorada */}
       <div className="mt-6 bg-black/30 p-3 rounded-lg">
