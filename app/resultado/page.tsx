@@ -287,7 +287,7 @@ export default function ResultPage() {
                     className="relative z-10 bg-white rounded-xl p-3 shadow-2xl border-2 border-orange-400"
                   >
                     <img
-                      src="https://comprarplanseguro.shop/wp-content/uploads/2025/06/Nova-Imagem-Plan-A-Livro.png"
+                      src="https://comprarplanseguro.shop/wp-content/uploads/2025/06/PLAN-A.png"
                       alt="Plan A - Sistema Completo"
                       className="w-full h-auto rounded-lg shadow-lg product-image"
                     />
@@ -317,7 +317,7 @@ export default function ResultPage() {
                     className="relative z-10 bg-white rounded-xl p-3 shadow-2xl border-2 border-yellow-400"
                   >
                     <img
-                      src="https://comprarplanseguro.shop/wp-content/uploads/2025/06/21-gatillos-nova-espanhol.png"
+                      src="https://comprarplanseguro.shop/wp-content/uploads/2025/06/21-gatillos.png"
                       alt="21 Gatillos Emocionales"
                       className="w-full h-auto rounded-lg shadow-lg product-image"
                     />
