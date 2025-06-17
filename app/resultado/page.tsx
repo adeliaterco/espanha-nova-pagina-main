@@ -123,28 +123,27 @@ import { useState, useEffect } from "react";
 
 export default function ResultadoPage() {
   const [isLoaded, setIsLoaded] = useState(false);
-  const [recentBuyers, setRecentBuyers] = useState(127);
+  const [recentBuyers] = useState(127);
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
     setIsLoaded(true);
     
-    // Animação da barra de progresso até 90.5%
     const timer = setInterval(() => {
       setProgress(prev => {
         if (prev >= 90.5) {
           clearInterval(timer);
           return 90.5;
         }
-        return prev + 1.5; // Incrementa 1.5% a cada intervalo
+        return prev + 1.5;
       });
-    }, 50); // Atualiza a cada 50ms
+    }, 50);
 
     return () => clearInterval(timer);
   }, []);
 
   const getPersonalizedPronoun = () => {
-    return "él"; // ou "ella"
+    return "él";
   };
 
   return (
@@ -175,7 +174,6 @@ export default function ResultadoPage() {
                     </div>
                   </div>
                   
-                  {/* Barra de progresso circular */}
                   <svg className="absolute inset-0 w-40 h-40 mx-auto transform -rotate-90" viewBox="0 0 100 100">
                     <circle
                       cx="50"
@@ -193,8 +191,8 @@ export default function ResultadoPage() {
                       strokeWidth="3"
                       fill="none"
                       strokeLinecap="round"
-                      strokeDasharray={`${2 * Math.PI * 45}`}
-                      strokeDashoffset={`${2 * Math.PI * 45 * (1 - progress / 100)}`}
+                      strokeDasharray={2 * Math.PI * 45}
+                      strokeDashoffset={2 * Math.PI * 45 * (1 - progress / 100)}
                       className="transition-all duration-300 ease-out"
                     />
                   </svg>
@@ -240,7 +238,6 @@ export default function ResultadoPage() {
                   </div>
                 </div>
 
-                {/* Barra de progresso linear adicional */}
                 <div className="bg-black/30 p-3 rounded-lg mb-4">
                   <div className="flex justify-between items-center mb-2">
                     <span className="text-sm text-yellow-300 font-semibold">Compatibilidad Analizada:</span>
