@@ -114,85 +114,135 @@ export default function ResultPage() {
           </p>
         </motion.div>
 
-        {/* RESULTADO DEL QUIZ - SECCIÓN IMPACTANTE */}
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: isLoaded ? 1 : 0, y: isLoaded ? 0 : -20 }}
-          id="resultado"
-          className="max-w-4xl mx-auto mb-8"
+{/* RESULTADO DEL QUIZ - SECCIÓN IMPACTANTE */}
+<motion.div
+  initial={{ opacity: 0, y: -20 }}
+  animate={{ opacity: isLoaded ? 1 : 0, y: isLoaded ? 0 : -20 }}
+  id="resultado"
+  className="max-w-4xl mx-auto mb-8"
+>
+  <Card className="bg-gradient-to-r from-orange-600 to-red-600 text-white overflow-hidden border-4 border-yellow-400 shadow-2xl">
+    <CardContent className="p-6">
+      <div className="text-center mb-4">
+        <h3 className="text-2xl font-bold text-white">
+          {formData.name ? `${formData.name.toUpperCase()}, ` : ""}TU RESULTADO PERSONALIZADO
+        </h3>
+        <div className="w-24 h-1 bg-yellow-400 mx-auto mt-2"></div>
+      </div>
+
+      <div className="flex flex-col md:flex-row items-center gap-6">
+        <div className="w-full md:w-1/3">
+          <div className="relative">
+            <div className="absolute inset-0 bg-yellow-400 rounded-full blur-xl opacity-60 animate-pulse"></div>
+            <div className="relative z-10 w-40 h-40 mx-auto bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center border-4 border-white">
+              <div className="text-center">
+                <span className="text-4xl font-extrabold text-white">
+                  {Math.floor(Math.random() * 15) + 82}%
+                </span>
+                <p className="text-sm font-bold text-white">
+                  {Math.random() > 0.3 ? "EXCELENTE" : "MUY BUENA"}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="w-full md:w-2/3">
+          <h4 className="text-xl font-bold text-yellow-300 mb-2">
+            DIAGNÓSTICO PARA {formData.name ? formData.name.toUpperCase() : "TI"}:
+          </h4>
+          <p className="text-white text-lg mb-4">
+            Basándome en que {formData.relationshipDuration ? `estuviste ${formData.relationshipDuration} con ${formData.exName || "tu ex"}` : "tu situación específica"}, 
+            tu caso es <span className="font-bold underline">
+              {["altamente recuperable", "muy prometedor", "extremadamente viable"][Math.floor(Math.random() * 3)]}
+            </span> con la estrategia correcta.
+          </p>
+
+          <div className="bg-black/30 p-4 rounded-lg mb-4">
+            <h5 className="font-bold text-yellow-300 mb-2">
+              LO QUE HEMOS DESCUBIERTO SOBRE {formData.exName ? formData.exName.toUpperCase() : "TU EX"}:
+            </h5>
+            <ul className="space-y-2 text-white">
+              <li className="flex items-start">
+                <Check className="w-5 h-5 text-green-400 mr-2 mt-1" />
+                <span>
+                  {getPersonalizedPronoun() === "él" ? "Él" : "Ella"} {formData.stillInContact ? 
+                    "mantiene contacto contigo, lo que indica interés emocional persistente" : 
+                    "evita el contacto como mecanismo de protección, pero los sentimientos siguen ahí"
+                  }
+                </span>
+              </li>
+              <li className="flex items-start">
+                <Check className="w-5 h-5 text-green-400 mr-2 mt-1" />
+                <span>
+                  Tu tipo de ruptura {formData.breakupReason ? `por ${formData.breakupReason}` : ""} requiere el 
+                  {[" Protocolo Avanzado", " Módulo Especializado", " Plan Intensivo"][Math.floor(Math.random() * 3)]} 
+                  {Math.floor(Math.random() * 3) + 2}
+                </span>
+              </li>
+              <li className="flex items-start">
+                <Check className="w-5 h-5 text-green-400 mr-2 mt-1" />
+                <span>
+                  Con tu perfil específico, puedes ver resultados en menos de {Math.floor(Math.random() * 10) + 14} días
+                </span>
+              </li>
+            </ul>
+          </div>
+
+          {/* Alerta personalizada crítica */}
+          <div className="bg-red-500/20 border border-red-400 p-3 rounded-lg mb-4">
+            <div className="flex items-start">
+              <AlertTriangle className="w-5 h-5 text-red-400 mr-2 mt-1" />
+              <div>
+                <p className="text-red-200 font-semibold">
+                  ATENCIÓN {formData.name ? formData.name.toUpperCase() : ""}:
+                </p>
+                <p className="text-white text-sm">
+                  {formData.timesSinceBreakup ? 
+                    `Han pasado ${formData.timesSinceBreakup} desde la ruptura. Cada día que pases sin la estrategia correcta reduce tus posibilidades un 3.2%.` :
+                    `Tu ventana de oportunidad se está cerrando. Es crucial actuar con la estrategia correcta AHORA.`
+                  }
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Prueba social dinámica mejorada */}
+      <div className="mt-6 bg-black/30 p-3 rounded-lg">
+        <div className="flex items-center justify-between flex-wrap gap-2">
+          <div className="flex items-center">
+            <Users className="w-5 h-5 text-orange-400 mr-2" />
+            <div className="text-sm text-white">
+              <span className="font-bold text-orange-400">{recentBuyers}</span> personas con tu mismo perfil 
+              {formData.age ? ` (${Math.floor(formData.age/5)*5}-${Math.floor(formData.age/5)*5+4} años)` : ""} 
+              han recuperado a su ex este mes
+            </div>
+          </div>
+
+          <div className="flex items-center">
+            <Clock className="w-5 h-5 text-orange-400 mr-2" />
+            <div className="text-sm text-white">
+              Tu análisis personalizado expira en: <CountdownTimer minutes={15} seconds={0} />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Botón de acción personalizado */}
+      <div className="mt-4 text-center">
+        <motion.button
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="bg-yellow-400 text-black font-bold py-3 px-8 rounded-full text-lg shadow-lg hover:bg-yellow-300 transition-all duration-300"
         >
-          <Card className="bg-gradient-to-r from-orange-600 to-red-600 text-white overflow-hidden border-4 border-yellow-400 shadow-2xl">
-            <CardContent className="p-6">
-              <div className="text-center mb-4">
-                <h3 className="text-2xl font-bold text-white">TU RESULTADO DEL QUIZ</h3>
-                <div className="w-24 h-1 bg-yellow-400 mx-auto mt-2"></div>
-              </div>
-
-              <div className="flex flex-col md:flex-row items-center gap-6">
-                <div className="w-full md:w-1/3">
-                  <div className="relative">
-                    <div className="absolute inset-0 bg-yellow-400 rounded-full blur-xl opacity-60 animate-pulse"></div>
-                    <div className="relative z-10 w-40 h-40 mx-auto bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center border-4 border-white">
-                      <div className="text-center">
-                        <span className="text-4xl font-extrabold text-white">90,5%</span>
-                        <p className="text-sm font-bold text-white">COMPATIBLE</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="w-full md:w-2/3">
-                  <h4 className="text-xl font-bold text-yellow-300 mb-2">DIAGNÓSTICO PERSONALIZADO:</h4>
-                  <p className="text-white text-lg mb-4">
-                    Basándome en tus respuestas, tu situación es{" "}
-                    <span className="font-bold underline">altamente recuperable</span> con el método correcto.
-                  </p>
-
-                  <div className="bg-black/30 p-4 rounded-lg mb-4">
-                    <h5 className="font-bold text-yellow-300 mb-2">LO QUE HEMOS DESCUBIERTO:</h5>
-                    <ul className="space-y-2 text-white">
-                      <li className="flex items-start">
-                        <Check className="w-5 h-5 text-green-400 mr-2 mt-1" />
-                        <span>
-                          {getPersonalizedPronoun() === "él" ? "Él" : "Ella"} aún tiene sentimientos por ti, pero hay
-                          barreras emocionales que superar
-                        </span>
-                      </li>
-                      <li className="flex items-start">
-                        <Check className="w-5 h-5 text-green-400 mr-2 mt-1" />
-                        <span>Tu tipo de ruptura requiere el enfoque del Módulo 3 del Plan A</span>
-                      </li>
-                      <li className="flex items-start">
-                        <Check className="w-5 h-5 text-green-400 mr-2 mt-1" />
-                        <span>Con el método correcto, puedes ver resultados en menos de 21 días</span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-
-              {/* Prueba social dinámica */}
-              <div className="mt-6 bg-black/30 p-3 rounded-lg">
-                <div className="flex items-center justify-between flex-wrap gap-2">
-                  <div className="flex items-center">
-                    <Users className="w-5 h-5 text-orange-400 mr-2" />
-                    <div className="text-sm text-white">
-                      <span className="font-bold text-orange-400">{recentBuyers}</span> personas han activado su plan
-                      hoy
-                    </div>
-                  </div>
-
-                  <div className="flex items-center">
-                    <Clock className="w-5 h-5 text-orange-400 mr-2" />
-                    <div className="text-sm text-white">
-                      La oferta expira en: <CountdownTimer minutes={15} seconds={0} />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        </motion.div>
+          VER MI ESTRATEGIA PARA RECUPERAR A {formData.exName ? formData.exName.toUpperCase() : "MI EX"}
+        </motion.button>
+      </div>
+    </CardContent>
+  </Card>
+</motion.div>
 
         {/* Comparativo Antes y Después */}
         <div id="historia" className="max-w-4xl mx-auto mb-12">
