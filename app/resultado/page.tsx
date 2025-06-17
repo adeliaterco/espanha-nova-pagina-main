@@ -124,9 +124,7 @@ export default function ResultPage() {
   <Card className="bg-gradient-to-r from-orange-600 to-red-600 text-white overflow-hidden border-4 border-yellow-400 shadow-2xl">
     <CardContent className="p-6">
       <div className="text-center mb-4">
-        <h3 className="text-2xl font-bold text-white">
-          {formData.name ? `${formData.name.toUpperCase()}, ` : ""}TU RESULTADO PERSONALIZADO
-        </h3>
+        <h3 className="text-2xl font-bold text-white">TU RESULTADO PERSONALIZADO</h3>
         <div className="w-24 h-1 bg-yellow-400 mx-auto mt-2"></div>
       </div>
 
@@ -137,10 +135,10 @@ export default function ResultPage() {
             <div className="relative z-10 w-40 h-40 mx-auto bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center border-4 border-white">
               <div className="text-center">
                 <span className="text-4xl font-extrabold text-white">
-                  {Math.floor(Math.random() * 15) + 82}%
+                  {typeof window !== 'undefined' ? Math.floor(Math.random() * 15) + 82 : 87}%
                 </span>
                 <p className="text-sm font-bold text-white">
-                  {Math.random() > 0.3 ? "EXCELENTE" : "MUY BUENA"}
+                  {typeof window !== 'undefined' && Math.random() > 0.3 ? "EXCELENTE" : "MUY BUENA"}
                 </p>
               </div>
             </div>
@@ -148,42 +146,46 @@ export default function ResultPage() {
         </div>
 
         <div className="w-full md:w-2/3">
-          <h4 className="text-xl font-bold text-yellow-300 mb-2">
-            DIAGNÓSTICO PARA {formData.name ? formData.name.toUpperCase() : "TI"}:
-          </h4>
+          <h4 className="text-xl font-bold text-yellow-300 mb-2">DIAGNÓSTICO ESPECÍFICO PARA TU CASO:</h4>
           <p className="text-white text-lg mb-4">
-            Basándome en que {formData.relationshipDuration ? `estuviste ${formData.relationshipDuration} con ${formData.exName || "tu ex"}` : "tu situación específica"}, 
-            tu caso es <span className="font-bold underline">
-              {["altamente recuperable", "muy prometedor", "extremadamente viable"][Math.floor(Math.random() * 3)]}
+            Basándome en tus respuestas del quiz, tu situación es{" "}
+            <span className="font-bold underline">
+              {typeof window !== 'undefined' ? 
+                ["altamente recuperable", "muy prometedora", "extremadamente viable"][Math.floor(Math.random() * 3)] :
+                "altamente recuperable"
+              }
             </span> con la estrategia correcta.
           </p>
 
           <div className="bg-black/30 p-4 rounded-lg mb-4">
-            <h5 className="font-bold text-yellow-300 mb-2">
-              LO QUE HEMOS DESCUBIERTO SOBRE {formData.exName ? formData.exName.toUpperCase() : "TU EX"}:
-            </h5>
+            <h5 className="font-bold text-yellow-300 mb-2">LO QUE HEMOS DESCUBIERTO SOBRE TU EX:</h5>
             <ul className="space-y-2 text-white">
               <li className="flex items-start">
                 <Check className="w-5 h-5 text-green-400 mr-2 mt-1" />
                 <span>
-                  {getPersonalizedPronoun() === "él" ? "Él" : "Ella"} {formData.stillInContact ? 
-                    "mantiene contacto contigo, lo que indica interés emocional persistente" : 
-                    "evita el contacto como mecanismo de protección, pero los sentimientos siguen ahí"
+                  {getPersonalizedPronoun() === "él" ? "Él" : "Ella"} {
+                    typeof window !== 'undefined' && Math.random() > 0.5 ? 
+                    "mantiene señales de interés emocional según tu perfil de respuestas" :
+                    "muestra patrones típicos de quien aún tiene sentimientos pero los oculta"
                   }
                 </span>
               </li>
               <li className="flex items-start">
                 <Check className="w-5 h-5 text-green-400 mr-2 mt-1" />
                 <span>
-                  Tu tipo de ruptura {formData.breakupReason ? `por ${formData.breakupReason}` : ""} requiere el 
-                  {[" Protocolo Avanzado", " Módulo Especializado", " Plan Intensivo"][Math.floor(Math.random() * 3)]} 
-                  {Math.floor(Math.random() * 3) + 2}
+                  Tu perfil de ruptura requiere el {
+                    typeof window !== 'undefined' ? 
+                    ["Protocolo Avanzado", "Módulo Especializado", "Plan Intensivo"][Math.floor(Math.random() * 3)] :
+                    "Módulo Especializado"
+                  } {typeof window !== 'undefined' ? Math.floor(Math.random() * 3) + 2 : 3}
                 </span>
               </li>
               <li className="flex items-start">
                 <Check className="w-5 h-5 text-green-400 mr-2 mt-1" />
                 <span>
-                  Con tu perfil específico, puedes ver resultados en menos de {Math.floor(Math.random() * 10) + 14} días
+                  Con tu perfil específico, puedes ver resultados en menos de {
+                    typeof window !== 'undefined' ? Math.floor(Math.random() * 10) + 14 : 21
+                  } días
                 </span>
               </li>
             </ul>
@@ -194,13 +196,11 @@ export default function ResultPage() {
             <div className="flex items-start">
               <AlertTriangle className="w-5 h-5 text-red-400 mr-2 mt-1" />
               <div>
-                <p className="text-red-200 font-semibold">
-                  ATENCIÓN {formData.name ? formData.name.toUpperCase() : ""}:
-                </p>
+                <p className="text-red-200 font-semibold">ATENCIÓN CRÍTICA:</p>
                 <p className="text-white text-sm">
-                  {formData.timesSinceBreakup ? 
-                    `Han pasado ${formData.timesSinceBreakup} desde la ruptura. Cada día que pases sin la estrategia correcta reduce tus posibilidades un 3.2%.` :
-                    `Tu ventana de oportunidad se está cerrando. Es crucial actuar con la estrategia correcta AHORA.`
+                  {typeof window !== 'undefined' && Math.random() > 0.5 ?
+                    "Tu ventana de oportunidad se está cerrando. Cada día sin la estrategia correcta reduce tus posibilidades un 3.2%." :
+                    "Según tu perfil, es crucial actuar con la estrategia correcta AHORA antes de que sea demasiado tarde."
                   }
                 </p>
               </div>
@@ -215,9 +215,8 @@ export default function ResultPage() {
           <div className="flex items-center">
             <Users className="w-5 h-5 text-orange-400 mr-2" />
             <div className="text-sm text-white">
-              <span className="font-bold text-orange-400">{recentBuyers}</span> personas con tu mismo perfil 
-              {formData.age ? ` (${Math.floor(formData.age/5)*5}-${Math.floor(formData.age/5)*5+4} años)` : ""} 
-              han recuperado a su ex este mes
+              <span className="font-bold text-orange-400">{recentBuyers}</span> personas con tu mismo perfil de respuestas 
+              han recuperado a su ex {typeof window !== 'undefined' && Math.random() > 0.5 ? "este mes" : "en las últimas 3 semanas"}
             </div>
           </div>
 
@@ -237,7 +236,7 @@ export default function ResultPage() {
           whileTap={{ scale: 0.95 }}
           className="bg-yellow-400 text-black font-bold py-3 px-8 rounded-full text-lg shadow-lg hover:bg-yellow-300 transition-all duration-300"
         >
-          VER MI ESTRATEGIA PARA RECUPERAR A {formData.exName ? formData.exName.toUpperCase() : "MI EX"}
+          VER MI ESTRATEGIA PERSONALIZADA AHORA
         </motion.button>
       </div>
     </CardContent>
