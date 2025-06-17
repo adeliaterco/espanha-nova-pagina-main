@@ -144,7 +144,6 @@ export const quizSteps = [
     },
     elements: {
       profileComplete: "62%",
-      testimonialImage: "",
     },
   },
   {
@@ -233,13 +232,12 @@ export const quizSteps = [
     elements: {
       bigNumber: "91%",
       profileComplete: "98%",
+      // ✅ CORREÇÃO: Agora usando apenas testimonialImages como array
       testimonialImages: [
         "https://comprarplanseguro.shop/wp-content/uploads/2025/06/JOSE-DEP-CANVA.png",
         "https://comprarplanseguro.shop/wp-content/uploads/2025/06/3-JUAN-DEP-CANVA.png",
         "https://comprarplanseguro.shop/wp-content/uploads/2025/06/2-LUIS-DEP-CANVA.png"
       ],
-      // Mantendo a propriedade original para compatibilidade
-      testimonialImage: "https://comprarplanseguro.shop/wp-content/uploads/2025/06/JOSE-DEP-CANVA.png"
     },
   },
   {
