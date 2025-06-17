@@ -1460,31 +1460,36 @@ export default function ResultPage() {
           </Card>
         </motion.div>
 
-        {/* Garantías - SIMPLIFICADAS */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: isLoaded ? 1 : 0, y: isLoaded ? 0 : 20 }}
-          transition={{ delay: 1.2 }}
-          id="garantias"
-          className="mb-12"
-        >
-          <h3 className="text-3xl font-bold text-white text-center mb-8">GARANTÍA TOTAL DE 30 DÍAS</h3>
-          <div className="max-w-4xl mx-auto">
-            <Card className="bg-green-50 border-2 border-green-300">
-              <CardContent className="p-6 text-center">
-                <Shield className="w-16 h-16 text-green-600 mx-auto mb-4" />
-                <h4 className="text-2xl font-bold text-green-800 mb-2">SATISFACCIÓN GARANTIZADA</h4>
-                <p className="text-green-700 font-semibold mb-3">
-                  Si no ves resultados en 30 días, te devolvemos el 100% de tu inversión
-                </p>
-                <p className="text-sm text-green-600 max-w-2xl mx-auto">
-                  Estamos tan seguros de que este método funcionará para ti que te ofrecemos una garantía completa. Si
-                  después de seguir el plan durante 30 días no ves ningún resultado positivo, simplemente escríbenos y
-                  te devolveremos el 100% de tu dinero sin hacer preguntas.
-                </p>
-              </CardContent>
-            </Card>
-          </div>
+{/* Garantías - SIMPLIFICADAS */}
+<motion.div
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: isLoaded ? 1 : 0, y: isLoaded ? 0 : 20 }}
+  transition={{ delay: 1.2 }}
+  id="garantias"
+  className="mb-12"
+>
+  <h3 className="text-3xl font-bold text-white text-center mb-8">GARANTÍA TOTAL DE 30 DÍAS</h3>
+  <div className="max-w-4xl mx-auto">
+    <Card className="bg-green-50 border-2 border-green-300">
+      <CardContent className="p-6 text-center">
+        <img 
+          src="https://comprarplanseguro.shop/wp-content/uploads/2025/06/c2940161-8aa2-4f5a-814d-84cafe4a8d32.png" 
+          alt="Garantía de satisfacción" 
+          className="w-16 h-16 mx-auto mb-4 object-contain"
+        />
+        <h4 className="text-2xl font-bold text-green-800 mb-2">SATISFACCIÓN GARANTIZADA</h4>
+        <p className="text-green-700 font-semibold mb-3">
+          Si no ves resultados en 30 días, te devolvemos el 100% de tu inversión
+        </p>
+        <p className="text-sm text-green-600 max-w-2xl mx-auto">
+          Estamos tan seguros de que este método funcionará para ti que te ofrecemos una garantía completa. Si
+          después de seguir el plan durante 30 días no ves ningún resultado positivo, simplemente escríbenos y
+          te devolveremos el 100% de tu dinero sin hacer preguntas.
+        </p>
+      </CardContent>
+    </Card>
+  </div>
+</motion.div>
 
           {/* CTA después de garantías - Séptimo CTA estratégico */}
           <div className="mt-8 text-center">
