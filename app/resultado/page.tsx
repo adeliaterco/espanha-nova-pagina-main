@@ -1182,11 +1182,8 @@ export default function ResultPage() {
 <div className="mt-12 mb-12">
   <div className="max-w-4xl mx-auto">
     <h3 className="text-3xl font-bold text-white text-center mb-2">
-      VE LO QUE DICE QUIEN YA LO HA CONSEGUIDO
+      Nuestras técnicas han sido destacadas en:
     </h3>
-    <p className="text-orange-400 text-center font-semibold mb-8">
-      Testimonio real de alguien que recuperó su relación en menos de 21 días
-    </p>
 
     <Card className="bg-gradient-to-br from-gray-800 to-gray-900 border-2 border-orange-500 shadow-2xl">
       <CardContent className="p-6">
@@ -1198,6 +1195,10 @@ export default function ResultPage() {
             className="w-full h-full object-cover rounded-lg hover:scale-105 transition-transform duration-300"
           />
         </div>
+
+            <p className="text-orange-400 text-center font-semibold mb-8">
+      Testimonio real de alguien que recuperó su relación en menos de 21 días
+    </p>
         
         {/* Segunda imagen */}
         <div className="aspect-video bg-black rounded-lg overflow-hidden">
