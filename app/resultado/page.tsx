@@ -114,120 +114,85 @@ export default function ResultPage() {
           </p>
         </motion.div>
 
+        {/* RESULTADO DEL QUIZ - SECCIÓN IMPACTANTE */}
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: isLoaded ? 1 : 0, y: isLoaded ? 0 : -20 }}
+          id="resultado"
+          className="max-w-4xl mx-auto mb-8"
+        >
+          <Card className="bg-gradient-to-r from-orange-600 to-red-600 text-white overflow-hidden border-4 border-yellow-400 shadow-2xl">
+            <CardContent className="p-6">
+              <div className="text-center mb-4">
+                <h3 className="text-2xl font-bold text-white">TU RESULTADO DEL QUIZ</h3>
+                <div className="w-24 h-1 bg-yellow-400 mx-auto mt-2"></div>
+              </div>
 
-    {/* RESULTADO DEL QUIZ - SECCIÓN IMPACTANTE */}
-    <motion.div
-      initial={{ opacity: 0, y: -20 }}
-      animate={{ opacity: isLoaded ? 1 : 0, y: isLoaded ? 0 : -20 }}
-      id="resultado"
-      className="max-w-4xl mx-auto mb-8"
-    >
-      <Card className="bg-gradient-to-r from-orange-600 to-red-600 text-white overflow-hidden border-4 border-yellow-400 shadow-2xl">
-        <CardContent className="p-6">
-          <div className="text-center mb-4">
-            <h3 className="text-2xl font-bold text-white">TU RESULTADO DEL QUIZ</h3>
-            <div className="w-24 h-1 bg-yellow-400 mx-auto mt-2"></div>
-          </div>
+              <div className="flex flex-col md:flex-row items-center gap-6">
+                <div className="w-full md:w-1/3">
+                  <div className="relative">
+                    <div className="absolute inset-0 bg-yellow-400 rounded-full blur-xl opacity-60 animate-pulse"></div>
+                    <div className="relative z-10 w-40 h-40 mx-auto bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center border-4 border-white">
+                      <div className="text-center">
+                        <span className="text-4xl font-extrabold text-white">90,5%</span>
+                        <p className="text-sm font-bold text-white">COMPATIBLE</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
-          <div className="flex flex-col md:flex-row items-center gap-6">
-            <div className="w-full md:w-1/3">
-              <div className="relative">
-                <div className="absolute inset-0 bg-yellow-400 rounded-full blur-xl opacity-60 animate-pulse"></div>
-                <div className="relative z-10 w-40 h-40 mx-auto bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center border-4 border-white">
-                  <div className="text-center">
-                    <span className="text-4xl font-extrabold text-white">90,5%</span>
-                    <p className="text-sm font-bold text-white">COMPATIBLE</p>
+                <div className="w-full md:w-2/3">
+                  <h4 className="text-xl font-bold text-yellow-300 mb-2">DIAGNÓSTICO PERSONALIZADO:</h4>
+                  <p className="text-white text-lg mb-4">
+                    Basándome en tus respuestas, tu situación es{" "}
+                    <span className="font-bold underline">altamente recuperable</span> con el método correcto.
+                  </p>
+
+                  <div className="bg-black/30 p-4 rounded-lg mb-4">
+                    <h5 className="font-bold text-yellow-300 mb-2">LO QUE HEMOS DESCUBIERTO:</h5>
+                    <ul className="space-y-2 text-white">
+                      <li className="flex items-start">
+                        <Check className="w-5 h-5 text-green-400 mr-2 mt-1" />
+                        <span>
+                          {getPersonalizedPronoun() === "él" ? "Él" : "Ella"} aún tiene sentimientos por ti, pero hay
+                          barreras emocionales que superar
+                        </span>
+                      </li>
+                      <li className="flex items-start">
+                        <Check className="w-5 h-5 text-green-400 mr-2 mt-1" />
+                        <span>Tu tipo de ruptura requiere el enfoque del Módulo 3 del Plan A</span>
+                      </li>
+                      <li className="flex items-start">
+                        <Check className="w-5 h-5 text-green-400 mr-2 mt-1" />
+                        <span>Con el método correcto, puedes ver resultados en menos de 21 días</span>
+                      </li>
+                    </ul>
                   </div>
                 </div>
               </div>
-            </div>
 
-            <div className="w-full md:w-2/3">
-              <h4 className="text-xl font-bold text-yellow-300 mb-2">DIAGNÓSTICO PERSONALIZADO:</h4>
-              <p className="text-white text-lg mb-4">
-                Basándome en tus respuestas, tu situación es{" "}
-                <span className="font-bold underline">altamente recuperable</span> con el método correcto.
-              </p>
+              {/* Prueba social dinámica */}
+              <div className="mt-6 bg-black/30 p-3 rounded-lg">
+                <div className="flex items-center justify-between flex-wrap gap-2">
+                  <div className="flex items-center">
+                    <Users className="w-5 h-5 text-orange-400 mr-2" />
+                    <div className="text-sm text-white">
+                      <span className="font-bold text-orange-400">{recentBuyers}</span> personas han activado su plan
+                      hoy
+                    </div>
+                  </div>
 
-              <div className="bg-black/30 p-4 rounded-lg mb-4">
-                <h5 className="font-bold text-yellow-300 mb-2">LO QUE HEMOS DESCUBIERTO:</h5>
-                <ul className="space-y-2 text-white">
-                  <li className="flex items-start">
-                    <Check className="w-5 h-5 text-green-400 mr-2 mt-1" />
-                    <span>
-                      {getPersonalizedPronoun() === "él" ? "Él" : "Ella"} aún tiene sentimientos por ti, pero hay
-                      barreras emocionales que superar
-                    </span>
-                  </li>
-                  <li className="flex items-start">
-                    <Check className="w-5 h-5 text-green-400 mr-2 mt-1" />
-                    <span>Tu tipo de ruptura requiere el enfoque del Módulo 3 del Plan A</span>
-                  </li>
-                  <li className="flex items-start">
-                    <Check className="w-5 h-5 text-green-400 mr-2 mt-1" />
-                    <span>Con el método correcto, puedes ver resultados en menos de 21 días</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          {/* Prueba social dinámica */}
-          <div className="mt-6 bg-black/30 p-3 rounded-lg">
-            <div className="flex items-center justify-between flex-wrap gap-2">
-              <div className="flex items-center">
-                <Users className="w-5 h-5 text-orange-400 mr-2" />
-                <div className="text-sm text-white">
-                  <span className="font-bold text-orange-400">{recentBuyers}</span> personas han activado su plan
-                  hoy
+                  <div className="flex items-center">
+                    <Clock className="w-5 h-5 text-orange-400 mr-2" />
+                    <div className="text-sm text-white">
+                      La oferta expira en: <CountdownTimer minutes={15} seconds={0} />
+                    </div>
+                  </div>
                 </div>
               </div>
-
-              <div className="flex items-center">
-                <Clock className="w-5 h-5 text-orange-400 mr-2" />
-                <div className="text-sm text-white">
-                  La oferta expira en: <CountdownTimer minutes={15} seconds={0} />
-                </div>
-              </div>
-            </div>
-          </div>
-        </CardContent>
-      </Card>
-    </motion.div>
-
-      {/* Prueba social dinámica mejorada */}
-      <div className="mt-6 bg-black/30 p-3 rounded-lg">
-        <div className="flex items-center justify-between flex-wrap gap-2">
-          <div className="flex items-center">
-            <Users className="w-5 h-5 text-orange-400 mr-2" />
-            <div className="text-sm text-white">
-              <span className="font-bold text-orange-400">{recentBuyers}</span> personas con tu mismo perfil de respuestas 
-              han recuperado a su ex {typeof window !== 'undefined' && Math.random() > 0.5 ? "este mes" : "en las últimas 3 semanas"}
-            </div>
-          </div>
-
-          <div className="flex items-center">
-            <Clock className="w-5 h-5 text-orange-400 mr-2" />
-            <div className="text-sm text-white">
-              Tu análisis personalizado expira en: <CountdownTimer minutes={15} seconds={0} />
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Botón de acción personalizado */}
-      <div className="mt-4 text-center">
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="bg-yellow-400 text-black font-bold py-3 px-8 rounded-full text-lg shadow-lg hover:bg-yellow-300 transition-all duration-300"
-        >
-          VER MI ESTRATEGIA PERSONALIZADA AHORA
-        </motion.button>
-      </div>
-    </CardContent>
-  </Card>
-</motion.div>
+            </CardContent>
+          </Card>
+        </motion.div>
 
         {/* Comparativo Antes y Después */}
         <div id="historia" className="max-w-4xl mx-auto mb-12">
