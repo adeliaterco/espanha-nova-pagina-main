@@ -1183,7 +1183,7 @@ export default function ResultPage() {
         {/* Segunda imagen */}
         <div className="aspect-video bg-black rounded-lg overflow-hidden">
           <img
-            src="https://comprarplanseguro.shop/wp-content/uploads/2025/06/02-prova-nova-espanha-fnd-1.png"
+            src="https://comprarplanseguro.shop/wp-content/uploads/2025/06/02-prova-nova-espanha-fnd-2.png"
             alt="Testimonio de reconquista - Segunda imagen"
             className="w-full h-full object-cover rounded-lg hover:scale-105 transition-transform duration-300"
           />
