@@ -1024,7 +1024,7 @@ export default function ResultPage() {
                           />
                         </div>
                         <div>
-                          <h5 className="font-bold text-gray-900">Carlos S.</h5>
+                          <h5 className="font-bold text-gray-900">Juan R.</h5>
                           <div className="flex text-orange-500">
                             <Star className="w-4 h-4 fill-current" />
                             <Star className="w-4 h-4 fill-current" />
