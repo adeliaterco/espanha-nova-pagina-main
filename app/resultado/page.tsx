@@ -317,7 +317,7 @@ export default function ResultPage() {
                     className="relative z-10 bg-white rounded-xl p-3 shadow-2xl border-2 border-yellow-400"
                   >
                     <img
-                      src="https://comprarplanseguro.shop/wp-content/uploads/2025/06/21-gatillos.png"
+                      src="https://comprarplanseguro.shop/wp-content/uploads/2025/06/21gatillos-capa-espanha-nova.png"
                       alt="21 Desencadenantes Emocionales"
                       className="w-full h-auto rounded-lg shadow-lg product-image"
                     />
@@ -400,7 +400,7 @@ export default function ResultPage() {
                     </div>
                   </div>
                   <p className="text-gray-300 text-sm">
-                    "Mi misión es ayudar a las personas a recuperar el amor que parecía perdido para siempre."
+                    "Mi misión es ayudar a las personas a recuperar el amor que parecía perdido para siempre." - Ricardo Abreu
                   </p>
                 </div>
               </div>
