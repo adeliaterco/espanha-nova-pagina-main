@@ -562,7 +562,7 @@ export default function HomePage() {
           
           {/* Subtítulo */}
           <p className="subtitulo">
-            Sin juegos mentales, solo el poder del método correcto
+            Sin juegos mentales, solo el poder del método correcto probado por más de 3.847 personas
           </p>
 
           {/* Botón CTA */}
@@ -586,7 +586,7 @@ export default function HomePage() {
               </span>
             ) : (
               <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                INICIAR PRUEBA
+                Descubre cómo funciona en 2 minutos
                 <ArrowRight style={{ marginLeft: '10px', width: '20px', height: '20px' }} />
               </span>
             )}
