@@ -233,7 +233,7 @@ export const quizSteps = [
     elements: {
       bigNumber: "91%",
       profileComplete: "98%",
-      testimonialImage: "https://comprarplanseguro.shop/wp-content/uploads/2025/06/nov-prova-plan.png",
+      testimonialImage: "https://comprarplanseguro.shop/wp-content/uploads/2025/06/prova-nova-espanha-face.png",
     },
   },
   {
