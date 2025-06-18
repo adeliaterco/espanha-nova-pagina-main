@@ -531,7 +531,7 @@ export default function HomePage() {
         <div>
           <div className="estrelas">★★★★★</div>
           <div className="nome-usuario">Pablo Álvez (@Pabloalvezs)</div>
-          <div className="texto-depoimento">"Seguí y repetí tu Método de los 3 Pasos como unas 30 veces jajajaja ¡y funcionó de manera increíble!"</div>
+          <div className="texto-depoimento">"Apliqué tu Método de los 3 Pasos y en 2 semanas volvió. Sin juegos mentales, ¡simplemente funciona!"</div>
         </div>
       </div>
 
